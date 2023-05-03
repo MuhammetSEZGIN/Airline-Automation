@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>Biletler</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"></link>
+    
+        <style>
+            .table {
+                max-width: 960px;
+                margin: 20px auto;
+            }
+        </style>
+    </head>
+    <body>
+         <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="index.xhtml">Jsf Airline</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.xhtml">Logout</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="profile.xhtml">Profile</a>
+            </li>
+          </ul>
+            
+   
+        </div>
+      </nav>
+    </header>
+<br></br>
+<br></br>
+       
+        <h:dataTable class="table" value="#{User.showAllTickets()}" var="flight"
+                     border="0" cellpadding="10" cellspacing="3" >
+
+            <h:column>
+                <f:facet name="header">Takeoff Date</f:facet>
+                    #{flight.TAKEOFF_DATE}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Takeoff Location</f:facet>
+                    #{flight.TAKEOFF_LOCATION}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Landing Location</f:facet>
+                    #{flight.LANDING_LOCATION}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Prıce</f:facet>
+                    #{flight.PRICE}₺
+            </h:column>
+            <h:column>
+                <f:facet name="header">Plane Model</f:facet>
+                    #{flight.NAME}
+            </h:column>
+            <h:column>
+                <h:form>
+                    <h:commandButton class="btn btn-primary"  value="Buy Ticket" action="#{User.addTicket()}">
+                    </h:commandButton>
+                </h:form>
+            </h:column>
+        </h:dataTable>
+       
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>
+

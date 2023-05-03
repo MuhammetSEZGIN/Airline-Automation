@@ -1,0 +1,72 @@
+DROP TABLE Users;
+DROP TABLE News;
+DROP TABLE Tickets;
+DROP TABLE Flights;
+DROP TABLE Planes;
+
+CREATE TABLE Users(
+    id INT NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    PRIMARY KEY ( id )
+);
+
+INSERT INTO Users VALUES (1, 'yasin@gmail.com', '1', 'yasin', 'osman');
+
+CREATE TABLE Planes(
+    id INT NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    capacity INT NOT NULL,
+    PRIMARY KEY ( id )
+);
+
+INSERT INTO Planes VALUES (1, 'Boeing 737', 100);
+INSERT INTO Planes VALUES (2, 'Airbus A320', 200);
+INSERT INTO Planes VALUES (3, 'ATR 72', 300);
+
+CREATE TABLE Flights(
+    id INT NOT NULL,
+    plane_id INT NOT NULL,
+    takeoff_location VARCHAR(50) NOT NULL,
+    landing_location VARCHAR(50) NOT NULL,
+    takeoff_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY ( id ),
+    FOREIGN KEY (plane_id) REFERENCES Planes(id)
+);
+
+INSERT INTO Flights VALUES (1, 1, 'İstanbul', 'Adana', '2023-05-19 08:06:20.123');
+INSERT INTO Flights VALUES (2, 1, 'Adana', 'İstanbul', '2023-06-19 10:06:20.456');
+INSERT INTO Flights VALUES (3, 1, 'İstanbul', 'İzmir', '2023-07-19 12:06:20.789');
+INSERT INTO Flights VALUES (4, 2, 'İstanbul', 'Adana', '2023-05-19 09:06:20.965');
+INSERT INTO Flights VALUES (5, 2, 'Adana', 'İzmir', '2023-05-23 23:06:20.965');
+INSERT INTO Flights VALUES (6, 2, 'İzmir', 'İstanbul', '2023-05-25 06:06:20.965');
+INSERT INTO Flights VALUES (7, 3, 'Adana', 'İstanbul', '2023-05-20 22:06:20.965');
+INSERT INTO Flights VALUES (8, 3, 'İstanbul', 'İzmir', '2023-06-22 08:06:20.965');
+INSERT INTO Flights VALUES (9, 3, 'İzmir', 'Adana', '2023-06-23 09:06:20.965');
+
+CREATE TABLE Tickets(
+    id INT NOT NULL,
+    flight_id INT NOT NULL,
+    price INT NOT NULL,
+    PRIMARY KEY ( id ),
+    FOREIGN KEY (flight_id) REFERENCES Flights(id)
+);
+
+INSERT INTO Tickets VALUES (1, 1, 250);
+INSERT INTO Tickets VALUES (2, 2, 120);
+INSERT INTO Tickets VALUES (3, 3, 990);
+INSERT INTO Tickets VALUES (4, 4, 400);
+INSERT INTO Tickets VALUES (5, 5, 130);
+INSERT INTO Tickets VALUES (6, 6, 110);
+INSERT INTO Tickets VALUES (7, 7, 99);
+INSERT INTO Tickets VALUES (8, 8, 255);
+INSERT INTO Tickets VALUES (9, 9, 105);
+
+CREATE TABLE User_Tickets(
+    ticket_id INT NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(id),
+    FOREIGN KEY (ticket_id) REFERENCES Tickets(id)
+);

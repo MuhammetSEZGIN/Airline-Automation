@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- index.html -->
+<!-- Displays an h:dataTable of the addresses in the address book -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"></link>
+    </h:head>
+    <h:body>
+         <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="index.xhtml">Jsf Airline</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.xhtml">Logout</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="profile.xhtml">Profile</a>
+            </li>
+          </ul>
+   
+        </div>
+      </nav>
+    </header>
+        <br></br>
+        <h2>Profile Information  </h2>
+
+        <h:dataTable value="#{User.showProfile()}" var="user" class="table" >
+            <h:column>
+                <f:facet name="header">First Name</f:facet>
+                    #{user.FIRST_NAME}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Last Name</f:facet>
+                    #{user.LAST_NAME}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                    #{user.EMAIL}
+            </h:column>
+        </h:dataTable>
+
+
+        <div>
+            <h:button class="btn btn-primary" value="Edit Profile" outcome="editprofile.xhtml" />
+        </div>
+                <br></br>
+        <h2>Flights</h2>
+
+        <h:dataTable class="table" value="#{User.currentTickets()}" var="myvariable"
+                     border="0" cellpadding="10" cellspacing="3" >
+
+            <h:column>
+                <f:facet name="header">Takeoff Date</f:facet>
+                    #{myvariable.TAKEOFF_DATE}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Firstname</f:facet>
+                    #{myvariable.FIRST_NAME}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Lastname</f:facet>
+                    #{myvariable.LAST_NAME}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Takeoff Location</f:facet>
+                    #{myvariable.TAKEOFF_LOCATION}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Landing Location</f:facet>
+                    #{myvariable.LANDING_LOCATION}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Plane Model</f:facet>
+                    #{myvariable.NAME}
+            </h:column>
+          <h:column>
+                <f:facet name="header">Plane Model</f:facet>
+                    #{myvariable.ID}
+            </h:column>
+        </h:dataTable>
+        <h:form>
+              <h:commandButton  class="btn btn-primary" value="Cancel All Ticket" action="#{User.cancelTicket()}">
+              </h:commandButton>
+           </h:form>
+                <br></br>
+
+        <h:form>
+                    <h:commandButton class="btn btn-primary"  value="New Ticket" action="index.xhtml">
+                    </h:commandButton>
+          </h:form>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </h:body>
+
+
+</html>

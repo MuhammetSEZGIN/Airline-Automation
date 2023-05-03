@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Uçuş Ara</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"></link>
+
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }
+
+            .b-example-divider {
+                height: 3rem;
+                background-color: rgba(0, 0, 0, .1);
+                border: solid rgba(0, 0, 0, .15);
+                border-width: 1px 0;
+                box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+            }
+
+            .b-example-vr {
+                flex-shrink: 0;
+                width: 1.5rem;
+                height: 100vh;
+            }
+
+            .bi {
+                vertical-align: -.125em;
+                fill: currentColor;
+            }
+
+            .nav-scroller {
+                position: relative;
+                z-index: 2;
+                height: 2.75rem;
+                overflow-y: hidden;
+            }
+
+            .nav-scroller .nav {
+                display: flex;
+                flex-wrap: nowrap;
+                padding-bottom: 1rem;
+                margin-top: -1px;
+                overflow-x: auto;
+                text-align: center;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+        </style>
+
+    </h:head>
+    <h:body>
+
+        <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="index.xhtml">Jsf Airline</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.xhtml">Logout</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="profile.xhtml">Profile</a>
+            </li>
+          </ul>
+   
+        </div>
+      </nav>
+    </header>
+                <br></br>
+
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5" style="max-width: 960px">
+                <h1 class="display-5 fw-bold">Uçuş Arayın</h1>
+                <p class="col-md-8 fs-4">Kalkış ve iniş yapacağınız havalimanları ile uçuş tarihini seçerek size en uygun uçuşları bulmamıza yardım edebilirsiniz.</p>
+                <h:form>
+                    <div style="display:flex; justify-content: flex-start;">
+                    <div style="margin-right:20px">
+                        <label>Kalkış Yeri</label>
+                        <h:selectOneMenu value="#{User.takeoff_location}" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <f:selectItem itemValue="İstanbul" itemLabel="İstanbul"/>
+                            <f:selectItem itemValue="İzmir" itemLabel="İzmir"/>
+                            <f:selectItem itemValue="Adana" itemLabel="Adana"/>
+                        </h:selectOneMenu>
+                    </div>
+                    <div>
+                        <label>İniş Yeri</label>
+                        <h:selectOneMenu value="#{User.landing_location}" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <f:selectItem itemValue="Adana" itemLabel="Adana"/>
+                            <f:selectItem itemValue="İstanbul" itemLabel="İstanbul"/>
+                            <f:selectItem itemValue="İzmir" itemLabel="İzmir"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                </div>
+                <h:commandButton value="Uçuş Ara"  class="btn btn-primary btn-lg" action="tickets.xhtml"/>
+
+                </h:form>
+                
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </h:body>
+</html>
+

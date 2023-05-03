@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"></link>
+
+    </head>
+    <body>
+         <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Jsf Airline</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.xhtml">Logout</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="profile.xhtml">Profile</a>
+            </li>
+          </ul>
+   
+        </div>
+      </nav>
+    </header>
+                <br></br>
+
+        <main class="form-signin w-100 m-auto">
+            <h:form>
+                <h1 class="h3 mb-3 fw-normal">Edit your profile</h1>
+
+                <div class="form-floating">
+                    <h:inputText class="form-control" id="isbn" required="true" requiredMessage="Please Enter First Name"
+                                 value="#{User.first_name}"/>
+                    <label for="isbn">First Name</label>
+                </div>
+                <div class="form-floating">
+                    <h:inputText class="form-control" id="last_name" required="true" requiredMessage="Please Enter Last Name"
+                                 value="#{User.last_name}"/>
+                    <label for="last_name">Last Name</label>
+                </div>
+                <div class="form-floating">
+                    <h:inputText class="form-control" id="email" required="true" requiredMessage="Please Enter Email"
+                                 value="#{User.email}"/>
+                    <label for="email">Email</label>
+                </div>
+
+                <h:commandButton value="Update Profile"
+                                 action="#{User.saveProfile()}" class="btn btn-primary"/>
+                <h:button class="btn btn-secondary" value="Cancel" outcome="profile.xhtml"/>
+
+            </h:form>
+        </main>
+        
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+</html>
