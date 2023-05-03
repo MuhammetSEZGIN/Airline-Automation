@@ -9,4 +9,6 @@ The team aims to establish a proper division of labor to achieve the project goa
 
 ![](Jsf_Airline/project_screenshots/3.png)
 
+![](Jsf_Airline/project_screenshots/5.png)
+
 ![](Jsf_Airline/project_screenshots/4.png)
